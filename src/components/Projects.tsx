@@ -1,4 +1,9 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./styles/Projects.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -28,15 +33,78 @@ const projects = [
 ];
 
 const Projects = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // Background gradient mouse follow effect
+    const handleMouseMove = (e: MouseEvent) => {
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Scroll reveal animations
+    gsap.fromTo(
+      titleRef.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    cardsRef.current.forEach((card, i) => {
+      gsap.fromTo(
+        card,
+        { y: 100, opacity: 0, rotateX: 5 },
+        {
+          y: 0,
+          opacity: 1,
+          rotateX: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: i * 0.15,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+          },
+        }
+      );
+    });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="projects-section section-container" id="projects">
+    <div className="projects-section section-container" id="projects" ref={containerRef}>
       <div className="projects-container">
-        <h2>
+        <h2 ref={titleRef}>
           Key <span>Projects</span>
         </h2>
         <div className="projects-grid">
           {projects.map((project, i) => (
-            <div className="project-card" key={i}>
+            <div
+              className="project-card"
+              key={i}
+              ref={(el) => { cardsRef.current[i] = el; }}
+            >
               <div className="project-number">0{i + 1}</div>
               <div className="project-content">
                 <div className="project-header">
