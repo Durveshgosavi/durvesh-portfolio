@@ -1,0 +1,198 @@
+.card3d-container {
+  width: 320px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.card3d-container:active {
+  cursor: grabbing;
+}
+
+/* Floating particles */
+.card3d-particles {
+  position: absolute;
+  inset: -30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background: var(--accentColor);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 5s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(-30px) scale(1);
+  }
+  75% {
+    opacity: 0.2;
+  }
+}
+
+/* Glow ring behind card */
+.card3d-glow {
+  position: absolute;
+  width: 280px;
+  height: 350px;
+  border-radius: 24px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(94, 234, 212, 0.08) 0%,
+    rgba(56, 189, 248, 0.04) 40%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  transition: all 0.5s ease;
+  z-index: 0;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.card3d-glow-active {
+  width: 320px;
+  height: 390px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(94, 234, 212, 0.18) 0%,
+    rgba(56, 189, 248, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* 3D Card */
+.card3d-card {
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  height: 330px;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: perspective(800px) translateY(0px) rotateX(0deg) rotateY(0deg); }
+  25% { transform: perspective(800px) translateY(-8px) rotateX(2deg) rotateY(-2deg); }
+  50% { transform: perspective(800px) translateY(-12px) rotateX(0deg) rotateY(0deg); }
+  75% { transform: perspective(800px) translateY(-6px) rotateX(-2deg) rotateY(2deg); }
+}
+
+.card3d-container:hover .card3d-card {
+  animation: none;
+}
+
+.card3d-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #1a1f2e;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(94, 234, 212, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.card3d-container:hover .card3d-inner {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(94, 234, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.card3d-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Light reflection overlay */
+.card3d-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 18px;
+  transition: background 0.2s ease;
+}
+
+/* Bottom gradient overlay */
+.card3d-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(5, 8, 16, 0.7) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Border glow */
+.card3d-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 3;
+  pointer-events: none;
+  transition: border-color 0.3s;
+}
+
+.card3d-container:hover .card3d-border {
+  border-color: rgba(94, 234, 212, 0.3);
+}
+
+@media screen and (max-width: 1024px) {
+  .card3d-container {
+    width: 240px;
+    height: 310px;
+  }
+  .card3d-card {
+    width: 200px;
+    height: 260px;
+  }
+  .card3d-glow {
+    width: 220px;
+    height: 280px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card3d-container {
+    width: 200px;
+    height: 270px;
+  }
+  .card3d-card {
+    width: 170px;
+    height: 220px;
+  }
+  .card3d-glow {
+    width: 190px;
+    height: 240px;
+  }
+}

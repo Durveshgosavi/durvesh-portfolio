@@ -1,0 +1,93 @@
+.contact-section {
+  padding: 100px 0 60px;
+}
+
+.contact-container h3 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #fff, var(--accentColor));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-flex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 40px;
+}
+
+.contact-box h4 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 15px;
+}
+
+.contact-box p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.contact-box p a {
+  transition: color 0.3s;
+}
+
+.contact-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.contact-social:hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.contact-box:last-child {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.contact-box h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.contact-box h2 span {
+  color: var(--accentColor);
+  font-weight: 600;
+}
+
+.contact-box h5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  opacity: 0.4;
+  margin-top: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .contact-flex {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .contact-section {
+    padding: 60px 0 40px;
+  }
+}

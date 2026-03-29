@@ -1,0 +1,89 @@
+.about-section {
+  width: 1300px;
+  max-width: calc(100% - 100px);
+  margin: auto;
+  padding: 120px 0 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.about-me {
+  flex: 2;
+}
+
+.about-me .title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff, var(--accentColor));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-me .para {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  line-height: 1.8;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.about-targets {
+  flex: 1;
+  padding-top: 70px;
+}
+
+.about-targets h4 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 15px;
+}
+
+.target-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  font-size: 13px;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.tag:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+@media screen and (max-width: 1600px) {
+  .about-section {
+    width: 1200px;
+    max-width: calc(100% - 160px);
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .about-section {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    width: 500px;
+    max-width: var(--cWidth);
+    padding: 80px 0 60px;
+    gap: 40px;
+  }
+  .about-targets {
+    padding-top: 0;
+  }
+}

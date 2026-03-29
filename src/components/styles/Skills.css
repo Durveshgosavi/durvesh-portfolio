@@ -1,0 +1,131 @@
+.skills-section {
+  padding: 80px 0;
+}
+
+.skills-container h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.skills-container h2 span {
+  background: linear-gradient(135deg, var(--accentColor), #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills-marquee {
+  margin-bottom: 50px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-tag {
+  padding: 8px 20px;
+  margin: 0 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-bottom: 50px;
+}
+
+.skill-category h4 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  margin-bottom: 15px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  font-size: 13px;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.05);
+}
+
+.languages-section h4 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  margin-bottom: 20px;
+}
+
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.lang-card {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lang-card:hover {
+  border-color: rgba(94, 234, 212, 0.3);
+}
+
+.lang-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.lang-level {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 900px) {
+  .skills-section {
+    padding: 60px 0;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .lang-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

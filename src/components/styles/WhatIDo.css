@@ -1,0 +1,145 @@
+.whatIDO {
+  display: flex;
+  width: 1300px;
+  max-width: calc(100% - 100px);
+  margin: auto;
+  padding: 80px 0;
+  gap: 40px;
+}
+
+.what-box:first-child {
+  flex: 0.4;
+  display: flex;
+  align-items: center;
+}
+
+.what-box:last-child {
+  flex: 0.6;
+}
+
+.what-box .title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hat-h2, .do-h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 300;
+  vertical-align: middle;
+}
+
+.what-box-in {
+  position: relative;
+}
+
+.what-border2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.what-border2 svg {
+  height: 100%;
+}
+
+.what-content {
+  position: relative;
+  padding: 30px;
+  transition: background 0.3s;
+}
+
+.what-content:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.what-border1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.what-border1 svg {
+  width: 100%;
+}
+
+.what-corner {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.what-content-in h3 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--accentColor);
+  margin-bottom: 8px;
+}
+
+.what-content-in h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.what-content-in p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+.what-content-in h5 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.what-content-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.what-tags {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1600px) {
+  .whatIDO {
+    width: 1200px;
+    max-width: calc(100% - 160px);
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .whatIDO {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .whatIDO {
+    flex-direction: column;
+    width: 500px;
+    max-width: var(--cWidth);
+    padding: 60px 0;
+  }
+}
